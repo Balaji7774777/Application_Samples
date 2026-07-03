@@ -1,0 +1,239 @@
+/* =========================
+   HEADER BASE
+========================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(11, 15, 23, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    transition: all 0.3s ease;
+}
+
+/* Optional: add scroll effect via JS */
+.site-header.scrolled {
+    background: rgba(11, 15, 23, 0.9);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* =========================
+   HEADER CONTAINER
+========================= */
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 72px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+
+    color: #e5e7eb;
+}
+
+.logo-brace {
+    color: #6d5efc;
+    font-weight: 800;
+}
+
+.logo-text {
+    color: #e5e7eb;
+}
+
+/* Hover effect */
+.logo:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    transition: 0.2s ease;
+}
+
+/* =========================
+   NAVIGATION (DESKTOP)
+========================= */
+
+.navbar {
+    display: flex;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    position: relative;
+
+    font-size: 14px;
+    color: #9ca3af;
+
+    transition: 0.25s ease;
+}
+
+/* underline animation */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+
+    width: 0%;
+    height: 2px;
+
+    background: linear-gradient(90deg, #6d5efc, #38bdf8);
+    transition: 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: #e5e7eb;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   HEADER ACTIONS
+========================= */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* CTA button override (smaller in header) */
+.header-actions .btn-primary {
+    padding: 10px 14px;
+    font-size: 14px;
+}
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.menu-btn {
+    display: none;
+
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    width: 40px;
+    height: 40px;
+
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.menu-btn span {
+    display: block;
+    width: 18px;
+    height: 2px;
+
+    background: #e5e7eb;
+    margin: 0 auto;
+
+    transition: 0.3s ease;
+}
+
+/* animate to X when active */
+.menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+.menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
+
+.mobile-nav {
+    display: none;
+
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+
+    background: rgba(11, 15, 23, 0.98);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    padding: 20px;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.mobile-nav a {
+    color: #9ca3af;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.mobile-nav a:hover {
+    color: #e5e7eb;
+}
+
+/* CTA in mobile menu */
+.mobile-btn {
+    margin-top: 16px;
+    width: 100%;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-btn {
+        display: flex;
+    }
+
+    .mobile-nav.active {
+        display: block;
+    }
+}

@@ -1,0 +1,119 @@
+/* =========================
+   TECH STACK SECTION
+========================= */
+
+.tech-stack {
+    padding: 100px 0;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* =========================
+   TECH CARD
+========================= */
+
+.tech-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    padding: 22px;
+    border-radius: 16px;
+
+    transition: 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* subtle glow */
+.tech-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at top right,
+        rgba(56, 189, 248, 0.12),
+        transparent 60%
+    );
+
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.tech-card:hover::before {
+    opacity: 1;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.tech-card h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #e5e7eb;
+}
+
+/* =========================
+   TAGS
+========================= */
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* pill style */
+.tech-tags span {
+    font-size: 12px;
+    padding: 6px 10px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+
+    color: #9ca3af;
+
+    transition: 0.2s ease;
+}
+
+/* hover chip */
+.tech-tags span:hover {
+    background: rgba(109, 94, 252, 0.15);
+    border-color: rgba(109, 94, 252, 0.4);
+    color: #e5e7eb;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+}
